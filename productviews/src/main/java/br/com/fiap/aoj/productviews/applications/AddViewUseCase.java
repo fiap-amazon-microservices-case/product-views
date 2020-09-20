@@ -18,21 +18,16 @@ public class AddViewUseCase {
 		this.viewRepository = viewRepository;
 	}
 
-	public void add(final String productId, final String categoryId){
+	public void add(final ViewDomain viewDomain){
 		try{
-			LOGGER.debug("m=add(productId={}, categoryId={})", productId, categoryId);
+			LOGGER.debug("m=add(viewDomain={})", viewDomain);
 
-			final ViewDomain viewDomain = build(productId, categoryId);
 			viewRepository.save(viewDomain);
 		}catch (Exception exception){
 			LOGGER.error("ex(message={}, cause={})", exception.getMessage(), exception);
+			throw new RuntimeException(String.format("Falha ao processar a informação de visualização para o produto=%s da categoria=%",
+					viewDomain.getItem().getProductId(),
+					viewDomain.getItem().getCategoryId()));
 		}
-	}
-
-	private ViewDomain build(final String productId, final String categoryId) {
-		final Item item = Item.of(productId, categoryId);
-		return ViewDomain.builder() //
-					.item(item) //
-					.builder();
 	}
 }

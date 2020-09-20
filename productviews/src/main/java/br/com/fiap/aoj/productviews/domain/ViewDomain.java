@@ -13,6 +13,7 @@ public class ViewDomain implements Serializable {
 
 	private static final long serialVersionUID = 1649219665299117651L;
 
+	//TODO: Já receber o ID e Data do view
 	@MongoId
 	private UUID id;
 

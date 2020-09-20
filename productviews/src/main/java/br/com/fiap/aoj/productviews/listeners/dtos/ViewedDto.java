@@ -1,27 +1,42 @@
 package br.com.fiap.aoj.productviews.listeners.dtos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ViewedDto {
 
-	private String productId;
+	private UUID id;
 
-	private String categoryId;
+	@JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss")
+	private LocalDateTime viewedAt;
 
-	public String getProductId() {
-		return productId;
+	private ItemDto item;
+
+	public UUID getId() {
+		return id;
 	}
 
-	public String getCategoryId() {
-		return categoryId;
+	public LocalDateTime getViewedAt() {
+		return viewedAt;
 	}
 
-	public void setProductId(String productId) {
-		this.productId = productId;
+	public ItemDto getItem() {
+		return item;
 	}
 
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	public void setViewedAt(LocalDateTime viewedAt) {
+		this.viewedAt = viewedAt;
+	}
+
+	public void setItem(ItemDto item) {
+		this.item = item;
 	}
 }
