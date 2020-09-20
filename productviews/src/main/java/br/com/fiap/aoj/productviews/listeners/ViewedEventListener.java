@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.aws.messaging.listener.SqsMessageDeletionPolicy;
 import org.springframework.cloud.aws.messaging.listener.annotation.SqsListener;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import java.time.LocalDateTime;
@@ -17,7 +18,7 @@ import java.util.UUID;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-@Controller
+@Component
 class ViewedEventListener {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ViewedEventListener.class);
