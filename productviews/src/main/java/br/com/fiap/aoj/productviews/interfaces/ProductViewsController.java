@@ -6,13 +6,9 @@ import br.com.fiap.aoj.productviews.interfaces.dtos.ViewedGroupedDto;
 import br.com.fiap.aoj.productviews.interfaces.dtos.ViewedProductDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;

@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.stereotype.Service;
 
-import java.awt.image.ImageProducer;
 import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -24,14 +23,9 @@ public class GetViewsUseCase {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(GetViewsUseCase.class);
 
-	private final ViewRepository viewRepository;
-
 	private final MongoOperations mongoOperations;
 
-
-
-	public GetViewsUseCase(final ViewRepository viewRepository, final MongoOperations mongoOperations) {
-		this.viewRepository = viewRepository;
+	public GetViewsUseCase(final MongoOperations mongoOperations) {
 		this.mongoOperations = mongoOperations;
 	}
 
