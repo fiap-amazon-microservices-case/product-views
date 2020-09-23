@@ -1,9 +1,11 @@
 plugins {
 	id 'org.springframework.boot' version '2.3.3.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'com.google.cloud.tools.jib' version '2.5.0'
 	id 'java'
 	id 'idea'
 }
+
 
 group = 'br.com.fiap.aoj'
 version = '0.0.1-SNAPSHOT'
@@ -46,4 +48,15 @@ dependencyManagement {
 
 test {
 	useJUnitPlatform()
+}
+
+
+jib {
+    from {
+        image = 'openjdk:8-jdk-alpine'
+    }
+    container {
+    	appRoot = "/app"
+        ports = ['8080']
+    }
 }
